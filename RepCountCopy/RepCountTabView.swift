@@ -10,11 +10,11 @@ import SwiftUI
 struct RepCountTabView: View {
     var body: some View {
         TabView {
-            LogView()
+            LogView(workouts: [Workout.MOCK_WORKOUTS[0], Workout.MOCK_WORKOUTS[0], Workout.MOCK_WORKOUTS[1]])
             .tabItem {
                 Label("Log", systemImage: "house")
             }
-            RoutinesView()
+            RoutinesView(routines: [Routine.MOCK_ROUTINES[0], Routine.MOCK_ROUTINES[1]])
             .tabItem {
                 Label("Routines", systemImage: "house")
             }

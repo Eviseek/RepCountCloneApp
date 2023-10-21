@@ -7,7 +7,14 @@
 
 import SwiftUI
 
-struct LogWorkoutView: View {
+struct SingleLogWorkoutView: View {
+    
+    let workout: Workout
+    
+//    private var routineInfo: Routine {
+//        return Routine.MOCK_ROUTINES.filter({ $0.workout?.id == routine.username})
+//    }
+    
     var body: some View {
         HStack(alignment: .top) {
             //vstack with day
@@ -60,9 +67,9 @@ struct LogWorkoutView: View {
     }
 }
 
-struct LogWorkoutView_Previews: PreviewProvider {
+struct SingleLogWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        LogWorkoutView()
+        SingleLogWorkoutView(workout: Workout.MOCK_WORKOUTS[0])
     }
 }
 

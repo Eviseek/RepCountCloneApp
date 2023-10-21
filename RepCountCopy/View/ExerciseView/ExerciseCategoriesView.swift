@@ -13,58 +13,18 @@ struct ExerciseCategoriesView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    private var categories = ExerciseCategory.MOCK_CATEGORIES
+    
     var body: some View {
         NavigationView {
             VStack {
-//                HStack {
-//                    Button {
-//                        dismiss()
-//                    } label: {
-//                        Text("Cancel")
-//                    }
-//
-//                    Spacer()
-//
-//                    Text("Select Exercise")
-//                        .fontWeight(.semibold)
-//
-//                    Spacer()
-//
-//                    Button {
-//                        //custom exercise
-//                    } label: {
-//                        Image(systemName: "plus")
-//                    }
-//
-//                    Button {
-//                        //custom exercise
-//                    } label: {
-//                        Image(systemName: "ellipsis.circle")
-//                    }
-//                    .padding(.leading, 10)
-//                }
-//                .padding(.horizontal, 10)
-//                .padding(.top, 20)
-                
- //               TextField("Search", text: $searchText)
-//                    .padding(.vertical, 5)
-//                    .padding(.horizontal, 10)
-//                    .background(Color(.white))
-//                    .searchable(text: $searchText)
-//                    .cornerRadius(5)
-//                    .padding(.horizontal, 10)
                 
                 Divider()
                 
                 List {
-                    ExerciseCategory(categoryName: "Abs")
-                    ExerciseCategory(categoryName: "Back")
-                    ExerciseCategory(categoryName: "Biceps")
-                    ExerciseCategory(categoryName: "Cardio")
-                    ExerciseCategory(categoryName: "Chest")
-                    ExerciseCategory(categoryName: "Legs")
-                    ExerciseCategory(categoryName: "Shoulders")
-                    ExerciseCategory(categoryName: "Triceps")
+                    ForEach(categories, id: \.id) { category in
+                        ExerciseCategoryView(category: category)
+                    }
                 }
                 .listStyle(.grouped)
                 .searchable(text: $searchText, prompt: "Search")
@@ -83,14 +43,14 @@ struct ExerciseCategoriesView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        //workout
+                        //create new exercise screen
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        //workout
+                        //menu with: edit exercises, edit categories
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }

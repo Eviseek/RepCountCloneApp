@@ -13,11 +13,16 @@ struct ExerciseCategoryItem: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var selectedExercises: NewRoutineObject
+    
+//    @Binding var selectedExercise: Exercise?
+    
+    var exercise: Exercise
+    
     var body: some View {
-        
-        
         HStack {
             Button {
+                selectedExercises.appendExerciseToList(exercise)
                 UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
             } label: {
                 ZStack {
@@ -25,7 +30,7 @@ struct ExerciseCategoryItem: View {
                         .frame(maxWidth: .infinity, maxHeight: 40)
                         .background(.clear)
                         .foregroundColor(.clear)
-                    Text("Leg Raises")
+                    Text(exercise.name)
                         .frame(maxWidth: .infinity, maxHeight: 40, alignment: .leading)
                         .padding(.leading, 10)
                         .foregroundColor(.black)
@@ -37,7 +42,7 @@ struct ExerciseCategoryItem: View {
             } label: {
                 Image(systemName: "info.circle")
                     .sheet(isPresented: $displayInfoSheet) {
-                        ExerciseInformationView()
+                        ExerciseInformationView(exercise: exercise)
                     }
             }
         }
@@ -47,6 +52,7 @@ struct ExerciseCategoryItem: View {
 
 struct ExerciseCategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseCategoryItem()
+        ExerciseCategoryItem(exercise: Exercise.MOCK_EXERCISES[0])
+            .environmentObject(NewRoutineObject(routine: nil))
     }
 }

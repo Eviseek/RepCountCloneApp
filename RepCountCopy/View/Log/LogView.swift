@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct LogView: View {
+    
+    var workouts: [Workout]
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
-                    LogMonthOverview()
-                    LogMonthOverview()
-                    LogMonthOverview()
+                    LogMonthOverview(workouts: [Workout.MOCK_WORKOUTS[0], Workout.MOCK_WORKOUTS[1], Workout.MOCK_WORKOUTS[1], Workout.MOCK_WORKOUTS[0]])
                 }
                 .padding(.horizontal, 10)
             }
@@ -41,6 +42,6 @@ struct LogView: View {
 
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
-        LogView()
+        LogView(workouts: [Workout.MOCK_WORKOUTS[0], Workout.MOCK_WORKOUTS[1], Workout.MOCK_WORKOUTS[1], Workout.MOCK_WORKOUTS[0]])
     }
 }

@@ -11,6 +11,12 @@ struct ExerciseInformationView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    var exercise: Exercise
+    
+    private var categoryInfo: ExerciseCategory? {
+        return ExerciseCategory.MOCK_CATEGORIES.first(where: { $0.id == exercise.categoryId })
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -38,7 +44,7 @@ struct ExerciseInformationView: View {
                 .resizable()
                 .frame(height: 200)
                 .scaledToFit()
-            Text("Leg Raises")
+            Text(exercise.name)
                 .padding(.leading, 10)
                 .font(.title)
                 .fontWeight(.medium)
@@ -48,7 +54,7 @@ struct ExerciseInformationView: View {
                 Text("Category")
                     .font(.caption)
                     .foregroundColor(Color(.systemGray))
-                Text("Abs")
+                Text(categoryInfo?.name ?? "None")
                     .font(.footnote)
             }
             .padding(.horizontal, 10)
@@ -61,6 +67,6 @@ struct ExerciseInformationView: View {
 
 struct ExerciseInformationView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseInformationView()
+        ExerciseInformationView(exercise: Exercise.MOCK_EXERCISES[0])
     }
 }

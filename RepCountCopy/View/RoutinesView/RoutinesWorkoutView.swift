@@ -8,18 +8,33 @@
 import SwiftUI
 
 struct RoutinesWorkoutView: View {
+    
+    var routine: Routine
+    
+    @EnvironmentObject var routineObject: NewRoutineObject
+    
     var body: some View {
         HStack {
-            Text("Unnamed Routine")
-            Spacer()
-            Image(systemName: "chevron.forward")
-                .foregroundColor(Color(.gray))
+            NavigationLink {
+                NewRoutineView()
+                    .environmentObject(routineObject)
+            } label: {
+                Text(routine.name)
+                    .foregroundColor(.black)
+                Spacer()
+                Image(systemName: "chevron.forward")
+                    .foregroundColor(Color(.gray))
+            }
+        }
+        .onTapGesture {
+            routineObject.existingRoutine = routine
         }
     }
 }
 
 struct RoutinesWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        RoutinesWorkoutView()
+        RoutinesWorkoutView(routine: Routine.MOCK_ROUTINES[0])
+            .environmentObject(NewRoutineObject(routine: nil))
     }
 }

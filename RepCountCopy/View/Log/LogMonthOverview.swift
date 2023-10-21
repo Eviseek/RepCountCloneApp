@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct LogMonthOverview: View {
+    
+    let workouts: [Workout]
+    
+    
     var body: some View {
         VStack {
             HStack(spacing: 2) {
                 Text("October 2023")
                 Spacer()
-                Text("3")
+                Text(workouts.count.description)
                 Text("Workouts")
             }
             .foregroundColor(Color(.systemGray))
@@ -21,9 +25,9 @@ struct LogMonthOverview: View {
             //.padding(.horizontal, 10)
             
             //Workout view(s)
-            LogWorkoutView()
-            LogWorkoutView()
-            LogWorkoutView()
+            ForEach(workouts) { workout in
+                SingleLogWorkoutView(workout: workout)
+            }
             
         }
         .padding(.bottom, 30)
@@ -32,7 +36,7 @@ struct LogMonthOverview: View {
 
 struct LogMonthOverview_Previews: PreviewProvider {
     static var previews: some View {
-        LogMonthOverview()
+        LogMonthOverview(workouts: [Workout.MOCK_WORKOUTS[0], Workout.MOCK_WORKOUTS[1], Workout.MOCK_WORKOUTS[1], Workout.MOCK_WORKOUTS[0]])
     }
 }
 

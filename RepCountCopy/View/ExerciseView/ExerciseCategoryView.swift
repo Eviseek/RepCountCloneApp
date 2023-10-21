@@ -7,18 +7,23 @@
 
 import SwiftUI
 
-struct ExerciseCategory: View {
+struct ExerciseCategoryView: View {
     
-    var categoryName = ""
     @State private var action: Int? = 0
+    
+    var category: ExerciseCategory
+    
+    private var exerciseList: [Exercise] {
+        return Exercise.MOCK_EXERCISES.filter({ $0.categoryId == category.id})
+    }
     
     var body: some View {
             NavigationLink {
-                ExerciseCategoryList()
+                ExerciseCategoryList(list: exerciseList) //find exercises and pass them
             } label: {
                 VStack(alignment: .leading) {
                     HStack(spacing: 3) {
-                        Text(categoryName)
+                        Text(category.name)
                             .fontWeight(.semibold)
                         Spacer()
                     }
@@ -31,8 +36,8 @@ struct ExerciseCategory: View {
     }
 }
 
-struct ExerciseCategory_Previews: PreviewProvider {
+struct ExerciseCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseCategory(categoryName: "Abs")
+        ExerciseCategoryView(category: ExerciseCategory.MOCK_CATEGORIES[0])
     }
 }

@@ -11,6 +11,8 @@ struct RoutinesView: View {
     
     @State private var isShowingNewRoutineScreen = false
     
+    let routines: [Routine]
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -18,9 +20,10 @@ struct RoutinesView: View {
                 VStack(alignment: .leading) {
                     Divider()
                     
-                    ForEach(0 ..< 5) { _ in
+                    ForEach(routines) { routine in
                         VStack(alignment: .leading) {
-                            RoutinesWorkoutView()
+                            RoutinesWorkoutView(routine: routine)
+                                .environmentObject(NewRoutineObject(routine: nil))
                             Divider()
                         }
                     }
@@ -37,6 +40,7 @@ struct RoutinesView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
                         NewRoutineView()
+                            .environmentObject(NewRoutineObject(routine: nil)) //je to dobre solution?
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -49,6 +53,6 @@ struct RoutinesView: View {
 
 struct RoutinesView_Previews: PreviewProvider {
     static var previews: some View {
-        RoutinesView()
+        RoutinesView(routines: [Routine.MOCK_ROUTINES[0], Routine.MOCK_ROUTINES[1]])
     }
 }

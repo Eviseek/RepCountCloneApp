@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct NewRoutineView: View {
     
-    @State private var routineName: String = ""
-    
     @State private var isExerciseListPresented = false
+    
+    @EnvironmentObject var newRoutineObject: NewRoutineObject
+    
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                
                 Button {
                     //start this workout
                 } label: {
@@ -31,7 +33,7 @@ struct NewRoutineView: View {
                 
                 VStack(spacing: 0) {
                     
-                    TextField("Name", text: $routineName)
+                    TextField("Name", text: $newRoutineObject.name)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 10)
@@ -78,13 +80,13 @@ struct NewRoutineView: View {
                 
                 // Exercises
                 VStack(spacing: 0) {
-                    NewRoutineExerciseItem()
-                    Divider()
-                    NewRoutineExerciseItem()
-                    Divider()
-                    NewRoutineExerciseItem()
-                    Divider()
-                    NewRoutineExerciseItem()
+                    if newRoutineObject.selectedExercisesList.count > 0 {
+                        ForEach(newRoutineObject.selectedExercisesList, id: \.id) { exercise in
+                            NewRoutineExerciseItem(exercise: exercise)
+                                .environmentObject(newRoutineObject)
+                            Divider()
+                        }
+                    }
                 }
                 .cornerRadius(5)
                 .padding(.top, 30)
@@ -109,8 +111,42 @@ struct NewRoutineView: View {
                 .padding(.top, 30)
                 .sheet(isPresented: $isExerciseListPresented, content: {
                     ExerciseCategoriesView()
+                        .environmentObject(newRoutineObject)
                 })
-
+                
+                if newRoutineObject.selectedExercisesList.count > 0 {
+                    Button {
+                        newRoutineObject.saveNewRoutine()
+                        dismiss()
+                    } label: {
+                        ZStack {
+                            Rectangle()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.vertical, 15)
+                                .padding(.horizontal, 10)
+                                .background(.white)
+                                .foregroundColor(.white)
+                                .tint(.pink)
+                                .cornerRadius(5)
+                            Text("Save new routine")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.leading, 10)
+                        }
+                    }
+                }
+                
+            }
+            .toolbar {
+                if newRoutineObject.selectedExercisesList.count > 0 {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            newRoutineObject.saveNewRoutine()
+                            dismiss()
+                        } label: {
+                            Text("Save")
+                        }
+                    }
+                }
             }
             .navigationTitle("New Routine")
             .padding(.horizontal, 10)
@@ -123,5 +159,6 @@ struct NewRoutineView: View {
 struct NewRoutineView_Previews: PreviewProvider {
     static var previews: some View {
         NewRoutineView()
+            .environmentObject(NewRoutineObject(routine: nil))
     }
 }

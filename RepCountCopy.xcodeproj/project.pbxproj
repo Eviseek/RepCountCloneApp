@@ -13,7 +13,7 @@
 		DD1CDBC52AD3433400826E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1CDBC42AD3433400826E7B /* Preview Assets.xcassets */; };
 		DD1CDBCC2AD343EA00826E7B /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBCB2AD343EA00826E7B /* LogView.swift */; };
 		DD1CDBCE2AD3440800826E7B /* LogMonthOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBCD2AD3440800826E7B /* LogMonthOverview.swift */; };
-		DD1CDBD02AD3442200826E7B /* LogWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBCF2AD3442200826E7B /* LogWorkoutView.swift */; };
+		DD1CDBD02AD3442200826E7B /* SingleLogWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBCF2AD3442200826E7B /* SingleLogWorkoutView.swift */; };
 		DD1CDBD22AD3444800826E7B /* RoutinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBD12AD3444800826E7B /* RoutinesView.swift */; };
 		DD1CDBD42AD3445B00826E7B /* RoutinesWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBD32AD3445B00826E7B /* RoutinesWorkoutView.swift */; };
 		DD1CDBD62AD3447200826E7B /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBD52AD3447200826E7B /* StatisticsView.swift */; };
@@ -22,7 +22,15 @@
 		DD1CDBDC2AD344D300826E7B /* NewRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBDB2AD344D300826E7B /* NewRoutineView.swift */; };
 		DD1CDBDE2AD344F700826E7B /* NewRoutineExerciseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBDD2AD344F700826E7B /* NewRoutineExerciseItem.swift */; };
 		DD1CDBE02AD3450400826E7B /* ExerciseCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBDF2AD3450400826E7B /* ExerciseCategoriesView.swift */; };
-		DD1CDBE22AD3473100826E7B /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBE12AD3473100826E7B /* ExerciseCategory.swift */; };
+		DD1CDBE22AD3473100826E7B /* ExerciseCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CDBE12AD3473100826E7B /* ExerciseCategoryView.swift */; };
+		DD3D37FA2ADEFBC00023C2A1 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D37F92ADEFBC00023C2A1 /* Exercise.swift */; };
+		DD3D37FD2ADEFBCD0023C2A1 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D37FC2ADEFBCD0023C2A1 /* Routine.swift */; };
+		DD3D37FF2ADEFBD50023C2A1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D37FE2ADEFBD50023C2A1 /* Workout.swift */; };
+		DD3D38012ADEFBDF0023C2A1 /* ExerciseRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38002ADEFBDF0023C2A1 /* ExerciseRoutine.swift */; };
+		DD3D38032ADEFBE50023C2A1 /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38022ADEFBE50023C2A1 /* ExerciseSet.swift */; };
+		DD3D38092AE4024C0023C2A1 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38082AE4024C0023C2A1 /* ExerciseCategory.swift */; };
+		DD3D380B2AE415CA0023C2A1 /* NewRoutineObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380A2AE415CA0023C2A1 /* NewRoutineObject.swift */; };
+		DD3D380F2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */; };
 		DDDE501C2AD463E8002829F3 /* ExerciseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */; };
 		DDDE501E2AD46859002829F3 /* ExerciseCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */; };
 		DDDE50202AD46881002829F3 /* ExerciseCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */; };
@@ -36,7 +44,7 @@
 		DD1CDBC42AD3433400826E7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD1CDBCB2AD343EA00826E7B /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		DD1CDBCD2AD3440800826E7B /* LogMonthOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMonthOverview.swift; sourceTree = "<group>"; };
-		DD1CDBCF2AD3442200826E7B /* LogWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWorkoutView.swift; sourceTree = "<group>"; };
+		DD1CDBCF2AD3442200826E7B /* SingleLogWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLogWorkoutView.swift; sourceTree = "<group>"; };
 		DD1CDBD12AD3444800826E7B /* RoutinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesView.swift; sourceTree = "<group>"; };
 		DD1CDBD32AD3445B00826E7B /* RoutinesWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesWorkoutView.swift; sourceTree = "<group>"; };
 		DD1CDBD52AD3447200826E7B /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
@@ -45,7 +53,15 @@
 		DD1CDBDB2AD344D300826E7B /* NewRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineView.swift; sourceTree = "<group>"; };
 		DD1CDBDD2AD344F700826E7B /* NewRoutineExerciseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineExerciseItem.swift; sourceTree = "<group>"; };
 		DD1CDBDF2AD3450400826E7B /* ExerciseCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoriesView.swift; sourceTree = "<group>"; };
-		DD1CDBE12AD3473100826E7B /* ExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
+		DD1CDBE12AD3473100826E7B /* ExerciseCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryView.swift; sourceTree = "<group>"; };
+		DD3D37F92ADEFBC00023C2A1 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		DD3D37FC2ADEFBCD0023C2A1 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
+		DD3D37FE2ADEFBD50023C2A1 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		DD3D38002ADEFBDF0023C2A1 /* ExerciseRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRoutine.swift; sourceTree = "<group>"; };
+		DD3D38022ADEFBE50023C2A1 /* ExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSet.swift; sourceTree = "<group>"; };
+		DD3D38082AE4024C0023C2A1 /* ExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
+		DD3D380A2AE415CA0023C2A1 /* NewRoutineObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineObject.swift; sourceTree = "<group>"; };
+		DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineExerciseSetView.swift; sourceTree = "<group>"; };
 		DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInformationView.swift; sourceTree = "<group>"; };
 		DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryList.swift; sourceTree = "<group>"; };
 		DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryItem.swift; sourceTree = "<group>"; };
@@ -86,6 +102,7 @@
 				DD1CDBE72AD3480900826E7B /* View */,
 				DD1CDBC12AD3433400826E7B /* Assets.xcassets */,
 				DD1CDBC32AD3433400826E7B /* Preview Content */,
+				DD3D37FB2ADEFBC60023C2A1 /* Model */,
 			);
 			path = RepCountCopy;
 			sourceTree = "<group>";
@@ -102,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				DD1CDBCB2AD343EA00826E7B /* LogView.swift */,
-				DD1CDBCF2AD3442200826E7B /* LogWorkoutView.swift */,
 				DD1CDBCD2AD3440800826E7B /* LogMonthOverview.swift */,
+				DD1CDBCF2AD3442200826E7B /* SingleLogWorkoutView.swift */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -111,10 +128,12 @@
 		DD1CDBE42AD347BE00826E7B /* RoutinesView */ = {
 			isa = PBXGroup;
 			children = (
-				DD1CDBD12AD3444800826E7B /* RoutinesView.swift */,
 				DD1CDBD32AD3445B00826E7B /* RoutinesWorkoutView.swift */,
+				DD1CDBD12AD3444800826E7B /* RoutinesView.swift */,
 				DD1CDBDB2AD344D300826E7B /* NewRoutineView.swift */,
 				DD1CDBDD2AD344F700826E7B /* NewRoutineExerciseItem.swift */,
+				DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */,
+				DD3D380A2AE415CA0023C2A1 /* NewRoutineObject.swift */,
 			);
 			path = RoutinesView;
 			sourceTree = "<group>";
@@ -133,10 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				DD1CDBDF2AD3450400826E7B /* ExerciseCategoriesView.swift */,
-				DD1CDBE12AD3473100826E7B /* ExerciseCategory.swift */,
-				DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */,
+				DD1CDBE12AD3473100826E7B /* ExerciseCategoryView.swift */,
 				DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */,
 				DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */,
+				DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */,
 			);
 			path = ExerciseView;
 			sourceTree = "<group>";
@@ -150,6 +169,19 @@
 				DD1CDBE62AD347F000826E7B /* ExerciseView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DD3D37FB2ADEFBC60023C2A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD3D37F92ADEFBC00023C2A1 /* Exercise.swift */,
+				DD3D38002ADEFBDF0023C2A1 /* ExerciseRoutine.swift */,
+				DD3D38022ADEFBE50023C2A1 /* ExerciseSet.swift */,
+				DD3D37FC2ADEFBCD0023C2A1 /* Routine.swift */,
+				DD3D37FE2ADEFBD50023C2A1 /* Workout.swift */,
+				DD3D38082AE4024C0023C2A1 /* ExerciseCategory.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,10 +257,16 @@
 				DD1CDBCE2AD3440800826E7B /* LogMonthOverview.swift in Sources */,
 				DD1CDBD22AD3444800826E7B /* RoutinesView.swift in Sources */,
 				DDDE501C2AD463E8002829F3 /* ExerciseInformationView.swift in Sources */,
-				DD1CDBD02AD3442200826E7B /* LogWorkoutView.swift in Sources */,
-				DD1CDBE22AD3473100826E7B /* ExerciseCategory.swift in Sources */,
+				DD3D38012ADEFBDF0023C2A1 /* ExerciseRoutine.swift in Sources */,
+				DD3D38092AE4024C0023C2A1 /* ExerciseCategory.swift in Sources */,
+				DD3D37FF2ADEFBD50023C2A1 /* Workout.swift in Sources */,
+				DD3D380B2AE415CA0023C2A1 /* NewRoutineObject.swift in Sources */,
+				DD1CDBD02AD3442200826E7B /* SingleLogWorkoutView.swift in Sources */,
+				DD3D37FD2ADEFBCD0023C2A1 /* Routine.swift in Sources */,
+				DD1CDBE22AD3473100826E7B /* ExerciseCategoryView.swift in Sources */,
 				DD1CDBC02AD3433200826E7B /* RepCountTabView.swift in Sources */,
 				DDDE50202AD46881002829F3 /* ExerciseCategoryItem.swift in Sources */,
+				DD3D380F2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift in Sources */,
 				DD1CDBD82AD3449200826E7B /* StatisticsCategoryView.swift in Sources */,
 				DDDE501E2AD46859002829F3 /* ExerciseCategoryList.swift in Sources */,
 				DD1CDBDA2AD344C100826E7B /* StatisticsCategoryItem.swift in Sources */,
@@ -239,6 +277,8 @@
 				DD1CDBDE2AD344F700826E7B /* NewRoutineExerciseItem.swift in Sources */,
 				DD1CDBE02AD3450400826E7B /* ExerciseCategoriesView.swift in Sources */,
 				DD1CDBBE2AD3433200826E7B /* RepCountCopyApp.swift in Sources */,
+				DD3D38032ADEFBE50023C2A1 /* ExerciseSet.swift in Sources */,
+				DD3D37FA2ADEFBC00023C2A1 /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

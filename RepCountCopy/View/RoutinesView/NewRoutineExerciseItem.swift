@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct NewRoutineExerciseItem: View {
+    
+    var exercise: Exercise
+    
+    @EnvironmentObject var newRoutineObject: NewRoutineObject
+    
+    private var setCount: Int {
+        return ExerciseSet.MOCK_SETS.first(where: { $0.exerciseId == exercise.id })?.setCount ?? 0
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Crunches")
-                .fontWeight(.semibold)
-            HStack(spacing: 3) {
-                Text("N/A")
-                Text("sets")
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(Color(.systemGray3))
+            NavigationLink {
+                NewRoutineExerciseSetView(exercise: exercise)
+                    .environmentObject(newRoutineObject)
+            } label: {
+                VStack(alignment: .leading) {
+                    Text(exercise.name)
+                        .fontWeight(.semibold)
+                    HStack(spacing: 3) {
+                        Text(setCount.description)
+                        Text("sets")
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color(.systemGray3))
+                    }
+                }
             }
+            .foregroundColor(.black)
            // Divider()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -30,6 +47,7 @@ struct NewRoutineExerciseItem: View {
 
 struct NewRoutineExerciseItem_Previews: PreviewProvider {
     static var previews: some View {
-        NewRoutineExerciseItem()
+        NewRoutineExerciseItem(exercise: Exercise.MOCK_EXERCISES[0])
+            .environmentObject(NewRoutineObject(routine: nil))
     }
 }

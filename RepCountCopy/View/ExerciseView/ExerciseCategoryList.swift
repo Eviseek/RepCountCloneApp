@@ -11,12 +11,22 @@ struct ExerciseCategoryList: View {
     
    // @State private var isCategoryDetailPresented = false
     
+    var list: [Exercise]
+    
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(0 ..< 5) { _ in
-                VStack(alignment: .leading, spacing: 0) {
-                    ExerciseCategoryItem()
-                    Divider()
+            if list.count > 0 {
+                ForEach(list, id: \.id) { exerciseItem in
+                    VStack(alignment: .leading, spacing: 0) {
+                        ExerciseCategoryItem(exercise: exerciseItem)
+                        Divider()
+                    }
+                }
+            } else {
+                Text("This category has no exercises.")
+                    .bold()
+                HStack {
+                    Spacer()
                 }
             }
             Spacer()
@@ -49,6 +59,6 @@ struct ExerciseCategoryList: View {
 
 struct ExerciseCategoryList_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseCategoryList()
+        ExerciseCategoryList(list: [])
     }
 }
