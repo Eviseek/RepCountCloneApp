@@ -148,7 +148,7 @@ struct NewRoutineView: View {
                     }
                 }
             }
-            .navigationTitle("New Routine")
+            .navigationTitle(newRoutineObject.name)
             .padding(.horizontal, 10)
         }
         .toolbar(.hidden, for: .tabBar)

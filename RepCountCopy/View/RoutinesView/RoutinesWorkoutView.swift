@@ -13,6 +13,7 @@ struct RoutinesWorkoutView: View {
     
     @EnvironmentObject var routineObject: NewRoutineObject
     
+    
     var body: some View {
         HStack {
             NavigationLink {
@@ -21,13 +22,14 @@ struct RoutinesWorkoutView: View {
             } label: {
                 Text(routine.name)
                     .foregroundColor(.black)
+                    .onAppear {
+                        routineObject.setUpExistingRoutine(routine: routine)
+                        //TODO: re-do, this is bad solution as it gets called every time on appear
+                    }
                 Spacer()
                 Image(systemName: "chevron.forward")
                     .foregroundColor(Color(.gray))
             }
-        }
-        .onTapGesture {
-            routineObject.existingRoutine = routine
         }
     }
 }
