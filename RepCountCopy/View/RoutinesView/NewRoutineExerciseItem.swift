@@ -10,24 +10,23 @@ import SwiftUI
 struct NewRoutineExerciseItem: View {
     
     var exercise: Exercise
+    //var positionInList: Int //used to get reference directly to the set
     
-    @EnvironmentObject var newRoutineObject: NewRoutineObject
+    @EnvironmentObject var newRoutineObject: RoutineObservableObject
     
-    private var setCount: Int {
-        return ExerciseSet.MOCK_SETS.first(where: { $0.exerciseId == exercise.id })?.setCount ?? 0
-    }
+    var setCount2: Int = 1
     
     var body: some View {
         VStack(alignment: .leading) {
             NavigationLink {
-                NewRoutineExerciseSetView(exercise: exercise)
+                NewRoutineExerciseSetView(setCount: (newRoutineObject.exercisesSets[newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id)].setCount), exercise: exercise)
                     .environmentObject(newRoutineObject)
             } label: {
                 VStack(alignment: .leading) {
                     Text(exercise.name)
                         .fontWeight(.semibold)
                     HStack(spacing: 3) {
-                        Text(setCount.description)
+                        Text((newRoutineObject.exercisesSets[newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id)].setCount).description)
                         Text("sets")
                         Spacer()
                         Image(systemName: "chevron.right")
@@ -48,6 +47,8 @@ struct NewRoutineExerciseItem: View {
 struct NewRoutineExerciseItem_Previews: PreviewProvider {
     static var previews: some View {
         NewRoutineExerciseItem(exercise: Exercise.MOCK_EXERCISES[0])
-            .environmentObject(NewRoutineObject(routine: nil))
+            .environmentObject(RoutineObservableObject(routine: nil))
     }
 }
+
+

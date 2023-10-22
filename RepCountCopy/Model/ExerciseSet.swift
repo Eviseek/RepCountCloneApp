@@ -22,6 +22,7 @@ struct ExerciseSet: Codable {
 extension ExerciseSet {
     
     static var MOCK_SETS: [ExerciseSet] = [
+        .init(exerciseId: Exercise.MOCK_EXERCISES[3].id, routineId: Routine.MOCK_ROUTINES[0].id, setCount: 2, weight: [0.0, 0.0, 0.0], reps: [20, 18, 15], notes: ""),
         .init(exerciseId: Exercise.MOCK_EXERCISES[0].id, routineId: Routine.MOCK_ROUTINES[0].id, setCount: 4, weight: [0.0, 0.0, 0.0], reps: [20, 18, 15], notes: ""),
         .init(exerciseId: Exercise.MOCK_EXERCISES[1].id, routineId: Routine.MOCK_ROUTINES[0].id, setCount: 5, weight: [0.0, 0.0, 0.0], reps: [25, 22, 20], notes: ""),
         .init(exerciseId: Exercise.MOCK_EXERCISES[2].id, routineId: Routine.MOCK_ROUTINES[0].id, setCount: 6, weight: [1.5, 1.5, 1.0], reps: [10, 8, 5], notes: ""),

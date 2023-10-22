@@ -8,15 +8,18 @@
 import Foundation
 import Combine
 
-class NewRoutineObject: ObservableObject {
+class RoutineObservableObject: ObservableObject {
     
     @Published var selectedExercisesList: [Exercise]
     @Published var name: String = "Unnamed Routine"
     @Published var notes: String = ""
-    
     @Published var exercisesSets: [ExerciseSet] = []
+    @Published var editClicked = false
+    @Published var routineId: String
     
     init(routine: Routine?) { //TODO: delete routine and rewrite it everywhere
+        
+        routineId = UUID().uuidString
         
         selectedExercisesList = []
         
@@ -27,6 +30,7 @@ class NewRoutineObject: ObservableObject {
     }
     
     func setUpExistingRoutine(routine: Routine) {
+        routineId = routine.id
         name = routine.name
         notes = routine.notes
         
@@ -55,10 +59,18 @@ class NewRoutineObject: ObservableObject {
             
     }
     
+    func deleteRoutine() {
+        print("deleting routine")
+//        if let id = routineId {
+//            //find routine and delete it
+//        }
+    }
+    
     func appendExerciseToList(_ exercise: Exercise) {
         print("appending")
         selectedExercisesList.append(exercise)
         print("list is \(selectedExercisesList)")
+        updateExerciseSetArray(exerciseId: exercise.id, setCount: 1)
     }
     
     func removeExerciseFromList(_ removalId: String) {
@@ -81,19 +93,42 @@ class NewRoutineObject: ObservableObject {
         
     }
     
-    func createExerciseSet(exerciseId: String, setCount: Int?) {
-        var newSet = ExerciseSet(exerciseId: exerciseId, setCount: setCount ?? 0, weight: [], reps: [], notes: "")
-        exercisesSets.append(newSet)
+    func updateExerciseSetArray(exerciseId: String, setCount: Int) {
+        
+        print("update with \(setCount)")
+        
+        if let position = exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == routineId }) { //if set already created and in array then just change set count
+            print("set found and changed")
+            exercisesSets[position].setCount = setCount
+        } else { //if set not found in array then create a new set and append it to array
+            print("set not found, created and appended")
+            var newSet = ExerciseSet(exerciseId: exerciseId, routineId: routineId, setCount: setCount, weight: [], reps: [], notes: "")
+            exercisesSets.append(newSet)
+        }
+        
     }
     
-    func saveNewRoutine() {
+    
+    func getExerciseSetPosition(exerciseId: String) -> Int {
+        return exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == routineId }) ?? 0
+    }
+    
+    func saveNewRoutineToDB() {
         
-        let routineId = UUID().uuidString
         //TODO: assign routineId to sets
         
         print("routine is \(name) and \(selectedExercisesList)")
         //save to db
     }
+    
+//    func clearObject() {
+//        routineId = ""
+//        selectedExercisesList = []
+//        name = "Unnamed Routine"
+//        notes = ""
+//        exercisesSets = []
+//        editClicked = false
+//    }
     
     
 }

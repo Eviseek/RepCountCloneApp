@@ -9,8 +9,10 @@ import SwiftUI
 
 struct NewRoutineExerciseSetView: View {
     
-    @State private var setCount = "0"
-    @EnvironmentObject var newRoutineObject: NewRoutineObject
+    var setCount: Int
+    
+    @State private var inputSetCount: String = ""
+    @EnvironmentObject var newRoutineObject: RoutineObservableObject
     @Environment(\.dismiss) private var dismiss
     
     var exercise: Exercise
@@ -21,7 +23,7 @@ struct NewRoutineExerciseSetView: View {
                 Text("Sets")
                     .foregroundColor(.black)
                 Spacer()
-                TextField("0", text: $setCount)
+                TextField(setCount.description, text: $inputSetCount)
                     .multilineTextAlignment(.trailing)
                     .foregroundColor(.black)
             }
@@ -32,7 +34,8 @@ struct NewRoutineExerciseSetView: View {
             .cornerRadius(5)
             
             Button {
-                //
+                newRoutineObject.updateExerciseSetArray(exerciseId: exercise.id, setCount: Int(inputSetCount) ?? 1)
+                dismiss()
             } label: {
                 ZStack {
                     Rectangle()
@@ -84,6 +87,6 @@ struct NewRoutineExerciseSetView: View {
 
 struct NewRoutineExerciseSetView_Previews: PreviewProvider {
     static var previews: some View {
-        NewRoutineExerciseSetView(exercise: Exercise.MOCK_EXERCISES[0])
+        NewRoutineExerciseSetView(setCount: 1, exercise: Exercise.MOCK_EXERCISES[0])
     }
 }

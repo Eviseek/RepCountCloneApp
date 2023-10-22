@@ -12,7 +12,7 @@ struct NewRoutineView: View {
     
     @State private var isExerciseListPresented = false
     
-    @EnvironmentObject var newRoutineObject: NewRoutineObject
+    @EnvironmentObject var newRoutineObject: RoutineObservableObject
     
     @Environment(\.dismiss) private var dismiss
     
@@ -116,7 +116,7 @@ struct NewRoutineView: View {
                 
                 if newRoutineObject.selectedExercisesList.count > 0 {
                     Button {
-                        newRoutineObject.saveNewRoutine()
+                        newRoutineObject.saveNewRoutineToDB()
                         dismiss()
                     } label: {
                         ZStack {
@@ -140,7 +140,7 @@ struct NewRoutineView: View {
                 if newRoutineObject.selectedExercisesList.count > 0 {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            newRoutineObject.saveNewRoutine()
+                            newRoutineObject.saveNewRoutineToDB()
                             dismiss()
                         } label: {
                             Text("Save")
@@ -159,6 +159,6 @@ struct NewRoutineView: View {
 struct NewRoutineView_Previews: PreviewProvider {
     static var previews: some View {
         NewRoutineView()
-            .environmentObject(NewRoutineObject(routine: nil))
+            .environmentObject(RoutineObservableObject(routine: nil))
     }
 }

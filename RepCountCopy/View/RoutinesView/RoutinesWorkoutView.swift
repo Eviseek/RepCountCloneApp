@@ -11,7 +11,7 @@ struct RoutinesWorkoutView: View {
     
     var routine: Routine
     
-    @EnvironmentObject var routineObject: NewRoutineObject
+    @EnvironmentObject var routineObject: RoutineObservableObject
     
     
     var body: some View {
@@ -20,15 +20,25 @@ struct RoutinesWorkoutView: View {
                 NewRoutineView()
                     .environmentObject(routineObject)
             } label: {
-                Text(routine.name)
-                    .foregroundColor(.black)
-                    .onAppear {
-                        routineObject.setUpExistingRoutine(routine: routine)
-                        //TODO: re-do, this is bad solution as it gets called every time on appear
+                HStack {
+                    if routineObject.editClicked {
+                        Button {
+                            routineObject.deleteRoutine()
+                        } label: {
+                            Image(systemName: "minus.circle.fill")
+                                .foregroundColor(.red)
+                        }
                     }
-                Spacer()
-                Image(systemName: "chevron.forward")
-                    .foregroundColor(Color(.gray))
+                    Text(routine.name)
+                        .foregroundColor(.black)
+                        .onAppear {
+                            routineObject.setUpExistingRoutine(routine: routine)
+                            //TODO: re-do, this is bad solution as it gets called every time on appear
+                        }
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                        .foregroundColor(Color(.gray))
+                }
             }
         }
     }
@@ -37,6 +47,6 @@ struct RoutinesWorkoutView: View {
 struct RoutinesWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
         RoutinesWorkoutView(routine: Routine.MOCK_ROUTINES[0])
-            .environmentObject(NewRoutineObject(routine: nil))
+            .environmentObject(RoutineObservableObject(routine: nil))
     }
 }

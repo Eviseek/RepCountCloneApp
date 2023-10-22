@@ -13,7 +13,7 @@ struct ExerciseCategoryItem: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @EnvironmentObject var selectedExercises: NewRoutineObject
+    @EnvironmentObject var routineObject: RoutineObservableObject
     
 //    @Binding var selectedExercise: Exercise?
     
@@ -22,7 +22,7 @@ struct ExerciseCategoryItem: View {
     var body: some View {
         HStack {
             Button {
-                selectedExercises.appendExerciseToList(exercise)
+                routineObject.appendExerciseToList(exercise)
                 UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
             } label: {
                 ZStack {
@@ -53,6 +53,6 @@ struct ExerciseCategoryItem: View {
 struct ExerciseCategoryItem_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseCategoryItem(exercise: Exercise.MOCK_EXERCISES[0])
-            .environmentObject(NewRoutineObject(routine: nil))
+            .environmentObject(RoutineObservableObject(routine: nil))
     }
 }

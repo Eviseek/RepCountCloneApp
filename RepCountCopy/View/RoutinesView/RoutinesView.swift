@@ -13,6 +13,7 @@ struct RoutinesView: View {
     
     let routines: [Routine]
     
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -23,7 +24,7 @@ struct RoutinesView: View {
                     ForEach(routines) { routine in
                         VStack(alignment: .leading) {
                             RoutinesWorkoutView(routine: routine)
-                                .environmentObject(NewRoutineObject(routine: nil))
+                                .environmentObject(RoutineObservableObject(routine: nil))
                             Divider()
                         }
                     }
@@ -35,12 +36,13 @@ struct RoutinesView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Edit") {
                         print("Edit tapped!")
+                        //TODO: show delete buttons
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
                         NewRoutineView()
-                            .environmentObject(NewRoutineObject(routine: nil)) //je to dobre solution?
+                            .environmentObject(RoutineObservableObject(routine: nil)) //je to dobre solution?
                     } label: {
                         Image(systemName: "plus")
                     }

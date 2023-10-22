@@ -29,8 +29,9 @@
 		DD3D38012ADEFBDF0023C2A1 /* ExerciseRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38002ADEFBDF0023C2A1 /* ExerciseRoutine.swift */; };
 		DD3D38032ADEFBE50023C2A1 /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38022ADEFBE50023C2A1 /* ExerciseSet.swift */; };
 		DD3D38092AE4024C0023C2A1 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38082AE4024C0023C2A1 /* ExerciseCategory.swift */; };
-		DD3D380B2AE415CA0023C2A1 /* NewRoutineObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380A2AE415CA0023C2A1 /* NewRoutineObject.swift */; };
+		DD3D380B2AE415CA0023C2A1 /* RoutineObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380A2AE415CA0023C2A1 /* RoutineObservableObject.swift */; };
 		DD3D380F2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */; };
+		DD3D38112AE595B80023C2A1 /* CustomViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38102AE595B80023C2A1 /* CustomViewModifier.swift */; };
 		DDDE501C2AD463E8002829F3 /* ExerciseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */; };
 		DDDE501E2AD46859002829F3 /* ExerciseCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */; };
 		DDDE50202AD46881002829F3 /* ExerciseCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */; };
@@ -60,8 +61,9 @@
 		DD3D38002ADEFBDF0023C2A1 /* ExerciseRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRoutine.swift; sourceTree = "<group>"; };
 		DD3D38022ADEFBE50023C2A1 /* ExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSet.swift; sourceTree = "<group>"; };
 		DD3D38082AE4024C0023C2A1 /* ExerciseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
-		DD3D380A2AE415CA0023C2A1 /* NewRoutineObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineObject.swift; sourceTree = "<group>"; };
+		DD3D380A2AE415CA0023C2A1 /* RoutineObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineObservableObject.swift; sourceTree = "<group>"; };
 		DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineExerciseSetView.swift; sourceTree = "<group>"; };
+		DD3D38102AE595B80023C2A1 /* CustomViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifier.swift; sourceTree = "<group>"; };
 		DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInformationView.swift; sourceTree = "<group>"; };
 		DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryList.swift; sourceTree = "<group>"; };
 		DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryItem.swift; sourceTree = "<group>"; };
@@ -133,7 +135,8 @@
 				DD1CDBDB2AD344D300826E7B /* NewRoutineView.swift */,
 				DD1CDBDD2AD344F700826E7B /* NewRoutineExerciseItem.swift */,
 				DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */,
-				DD3D380A2AE415CA0023C2A1 /* NewRoutineObject.swift */,
+				DD3D380A2AE415CA0023C2A1 /* RoutineObservableObject.swift */,
+				DD3D38102AE595B80023C2A1 /* CustomViewModifier.swift */,
 			);
 			path = RoutinesView;
 			sourceTree = "<group>";
@@ -260,7 +263,7 @@
 				DD3D38012ADEFBDF0023C2A1 /* ExerciseRoutine.swift in Sources */,
 				DD3D38092AE4024C0023C2A1 /* ExerciseCategory.swift in Sources */,
 				DD3D37FF2ADEFBD50023C2A1 /* Workout.swift in Sources */,
-				DD3D380B2AE415CA0023C2A1 /* NewRoutineObject.swift in Sources */,
+				DD3D380B2AE415CA0023C2A1 /* RoutineObservableObject.swift in Sources */,
 				DD1CDBD02AD3442200826E7B /* SingleLogWorkoutView.swift in Sources */,
 				DD3D37FD2ADEFBCD0023C2A1 /* Routine.swift in Sources */,
 				DD1CDBE22AD3473100826E7B /* ExerciseCategoryView.swift in Sources */,
@@ -271,6 +274,7 @@
 				DDDE501E2AD46859002829F3 /* ExerciseCategoryList.swift in Sources */,
 				DD1CDBDA2AD344C100826E7B /* StatisticsCategoryItem.swift in Sources */,
 				DD1CDBDC2AD344D300826E7B /* NewRoutineView.swift in Sources */,
+				DD3D38112AE595B80023C2A1 /* CustomViewModifier.swift in Sources */,
 				DD1CDBD42AD3445B00826E7B /* RoutinesWorkoutView.swift in Sources */,
 				DD1CDBD62AD3447200826E7B /* StatisticsView.swift in Sources */,
 				DD1CDBCC2AD343EA00826E7B /* LogView.swift in Sources */,
