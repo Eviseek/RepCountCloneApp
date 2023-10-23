@@ -55,8 +55,9 @@ struct NewRoutineExerciseSetView: View {
             .frame(maxHeight: 40)
             
             Button {
-                newRoutineObject.removeExerciseFromList(exercise.id)
                 dismiss()
+                newRoutineObject.removeExerciseFromList(exercise.id)
+                
             } label: {
                 ZStack {
                     Rectangle()

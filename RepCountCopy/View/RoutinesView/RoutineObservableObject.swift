@@ -10,32 +10,29 @@ import Combine
 
 class RoutineObservableObject: ObservableObject {
     
-    @Published var selectedExercisesList: [Exercise]
-    @Published var name: String = "Unnamed Routine"
-    @Published var notes: String = ""
+    @Published var selectedExercisesList: [Exercise] = []
+   // @Published var name: String = "Unnamed Routine"
+  //  @Published var notes: String = ""
     @Published var exercisesSets: [ExerciseSet] = []
     @Published var editClicked = false
-    @Published var routineId: String
+ //   @Published var routineId: String
+    @Published var routine: Routine
     
     init(routine: Routine?) { //TODO: delete routine and rewrite it everywhere
         
-        routineId = UUID().uuidString
-        
-        selectedExercisesList = []
-        
-        if routine != nil {
-            setUpExistingRoutine(routine: routine!)
+        if let oldRoutine = routine {
+            self.routine = Routine(id: oldRoutine.id, name: oldRoutine.name, notes: oldRoutine.notes)
+            self.setUpExistingRoutine(routine: routine!)
+        } else {
+            self.routine = Routine(id: UUID().uuidString, name: "Unnamed Routine", notes: "")
         }
         
     }
     
     func setUpExistingRoutine(routine: Routine) {
-        routineId = routine.id
-        name = routine.name
-        notes = routine.notes
-        
+    
         var foundExerciseSets: [ExerciseSet] {
-            var foundex = ExerciseSet.MOCK_SETS.filter({ $0.routineId == routine.id })
+            let foundex = ExerciseSet.MOCK_SETS.filter({ $0.routineId == routine.id })
             //print("found: \(foundex)") //funguje!
             return foundex
         }
@@ -46,7 +43,7 @@ class RoutineObservableObject: ObservableObject {
         var exerciseList: [Exercise] {
             var list: [Exercise] = []
             exercisesSets.forEach { item in
-                var foundExercise = Exercise.MOCK_EXERCISES.first(where: { $0.id == item.exerciseId})
+                let foundExercise = Exercise.MOCK_EXERCISES.first(where: { $0.id == item.exerciseId})
                 if let foundExercise = foundExercise {
                     list.append(foundExercise)
                 }
@@ -73,20 +70,19 @@ class RoutineObservableObject: ObservableObject {
         updateExerciseSetArray(exerciseId: exercise.id, setCount: 1)
     }
     
-    func removeExerciseFromList(_ removalId: String) {
+    func updateRoutineNote(note: String) {
+        self.routine.notes = note
+    }
+    
+    func removeExerciseFromList(_ exerciseId: String) {
         
-        var index = 0
-        var removalIndex: Int? = nil
-        
-        selectedExercisesList.forEach { item in
-            if item.id == removalId {
-                removalIndex = index
-            }
-            index += 1
+        if let setPosition = exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == self.routine.id }) {
+            print("set found and deleted")
+            exercisesSets.remove(at: setPosition)
         }
         
-        if let index = removalIndex {
-            selectedExercisesList.remove(at: index)
+        if let position = selectedExercisesList.firstIndex(where: { $0.id == exerciseId }) {
+            selectedExercisesList.remove(at: position)
         }
         
         //TODO: remove exerciseSets
@@ -97,12 +93,12 @@ class RoutineObservableObject: ObservableObject {
         
         print("update with \(setCount)")
         
-        if let position = exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == routineId }) { //if set already created and in array then just change set count
+        if let position = exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == self.routine.id }) { //if set already created and in array then just change set count
             print("set found and changed")
             exercisesSets[position].setCount = setCount
         } else { //if set not found in array then create a new set and append it to array
             print("set not found, created and appended")
-            var newSet = ExerciseSet(exerciseId: exerciseId, routineId: routineId, setCount: setCount, weight: [], reps: [], notes: "")
+            let newSet = ExerciseSet(exerciseId: exerciseId, routineId: self.routine.id, setCount: setCount, weight: [], reps: [], notes: "")
             exercisesSets.append(newSet)
         }
         
@@ -110,14 +106,14 @@ class RoutineObservableObject: ObservableObject {
     
     
     func getExerciseSetPosition(exerciseId: String) -> Int {
-        return exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == routineId }) ?? 0
+        return exercisesSets.firstIndex(where: { $0.exerciseId == exerciseId && $0.routineId == self.routine.id }) ?? 0
     }
     
     func saveNewRoutineToDB() {
-        
+
         //TODO: assign routineId to sets
         
-        print("routine is \(name) and \(selectedExercisesList)")
+        print("routine is \(self.routine.name) and \(selectedExercisesList)")
         //save to db
     }
     

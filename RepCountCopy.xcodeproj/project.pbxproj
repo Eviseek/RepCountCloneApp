@@ -32,6 +32,7 @@
 		DD3D380B2AE415CA0023C2A1 /* RoutineObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380A2AE415CA0023C2A1 /* RoutineObservableObject.swift */; };
 		DD3D380F2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */; };
 		DD3D38112AE595B80023C2A1 /* CustomViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D38102AE595B80023C2A1 /* CustomViewModifier.swift */; };
+		DDCAFE5F2AE707FB000ACF1F /* NotesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAFE5E2AE707FB000ACF1F /* NotesDetailView.swift */; };
 		DDDE501C2AD463E8002829F3 /* ExerciseInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */; };
 		DDDE501E2AD46859002829F3 /* ExerciseCategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */; };
 		DDDE50202AD46881002829F3 /* ExerciseCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */; };
@@ -64,6 +65,7 @@
 		DD3D380A2AE415CA0023C2A1 /* RoutineObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineObservableObject.swift; sourceTree = "<group>"; };
 		DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineExerciseSetView.swift; sourceTree = "<group>"; };
 		DD3D38102AE595B80023C2A1 /* CustomViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifier.swift; sourceTree = "<group>"; };
+		DDCAFE5E2AE707FB000ACF1F /* NotesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailView.swift; sourceTree = "<group>"; };
 		DDDE501B2AD463E8002829F3 /* ExerciseInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInformationView.swift; sourceTree = "<group>"; };
 		DDDE501D2AD46859002829F3 /* ExerciseCategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryList.swift; sourceTree = "<group>"; };
 		DDDE501F2AD46881002829F3 /* ExerciseCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryItem.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				DD3D380E2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift */,
 				DD3D380A2AE415CA0023C2A1 /* RoutineObservableObject.swift */,
 				DD3D38102AE595B80023C2A1 /* CustomViewModifier.swift */,
+				DDCAFE5E2AE707FB000ACF1F /* NotesDetailView.swift */,
 			);
 			path = RoutinesView;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				DD1CDBE22AD3473100826E7B /* ExerciseCategoryView.swift in Sources */,
 				DD1CDBC02AD3433200826E7B /* RepCountTabView.swift in Sources */,
 				DDDE50202AD46881002829F3 /* ExerciseCategoryItem.swift in Sources */,
+				DDCAFE5F2AE707FB000ACF1F /* NotesDetailView.swift in Sources */,
 				DD3D380F2AE442E50023C2A1 /* NewRoutineExerciseSetView.swift in Sources */,
 				DD1CDBD82AD3449200826E7B /* StatisticsCategoryView.swift in Sources */,
 				DDDE501E2AD46859002829F3 /* ExerciseCategoryList.swift in Sources */,

@@ -33,7 +33,7 @@ struct NewRoutineView: View {
                 
                 VStack(spacing: 0) {
                     
-                    TextField("Name", text: $newRoutineObject.name)
+                    TextField("Name", text: $newRoutineObject.routine.name)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 10)
@@ -61,11 +61,17 @@ struct NewRoutineView: View {
                     
                     Divider()
                     
-                    Button {
-                        //add note
+                    NavigationLink {
+                        NotesDetailView()
+                            .environmentObject(newRoutineObject)
                     } label: {
                         HStack {
-                            Text("Notes")
+                            if newRoutineObject.routine.notes.count > 0 {
+                                Text(newRoutineObject.routine.notes)
+                                    .lineLimit(1)
+                            } else {
+                                Text("Click to add notes")
+                            }
                             Spacer()
                             Image(systemName: "chevron.right")
                         }
@@ -80,8 +86,10 @@ struct NewRoutineView: View {
                 
                 // Exercises
                 VStack(spacing: 0) {
+                    let _ = print("selectedExercisesList is \(newRoutineObject.selectedExercisesList)")
                     if newRoutineObject.selectedExercisesList.count > 0 {
                         ForEach(newRoutineObject.selectedExercisesList, id: \.id) { exercise in
+                            let _ = print(" !!!!!!!!! creating set for item \(exercise.name)")
                             NewRoutineExerciseItem(exercise: exercise)
                                 .environmentObject(newRoutineObject)
                             Divider()
@@ -148,7 +156,7 @@ struct NewRoutineView: View {
                     }
                 }
             }
-            .navigationTitle(newRoutineObject.name)
+            .navigationTitle(newRoutineObject.routine.name)
             .padding(.horizontal, 10)
         }
         .toolbar(.hidden, for: .tabBar)

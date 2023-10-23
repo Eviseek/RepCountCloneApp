@@ -14,19 +14,27 @@ struct NewRoutineExerciseItem: View {
     
     @EnvironmentObject var newRoutineObject: RoutineObservableObject
     
-    var setCount2: Int = 1
-    
     var body: some View {
         VStack(alignment: .leading) {
             NavigationLink {
-                NewRoutineExerciseSetView(setCount: (newRoutineObject.exercisesSets[newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id)].setCount), exercise: exercise)
-                    .environmentObject(newRoutineObject)
+                if newRoutineObject.exercisesSets.count > newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id) {
+                    NewRoutineExerciseSetView(setCount: (newRoutineObject.exercisesSets[newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id)].setCount), exercise: exercise)
+                        .environmentObject(newRoutineObject)
+                } else {
+                    let _ = print(" >>>>>>>>>>>>>>> it is NOT ok")
+                }
             } label: {
                 VStack(alignment: .leading) {
                     Text(exercise.name)
                         .fontWeight(.semibold)
                     HStack(spacing: 3) {
-                        Text((newRoutineObject.exercisesSets[newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id)].setCount).description)
+                        let _ = print("?????????? sets set up")
+                        if newRoutineObject.exercisesSets.count > newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id) {
+                            Text((newRoutineObject.exercisesSets[newRoutineObject.getExerciseSetPosition(exerciseId: exercise.id)].setCount).description)
+                        } else {
+                            let _ = print(" >>>>>>>>>>>>>>> it is NOT ok")
+                            Text("N/A")
+                        }
                         Text("sets")
                         Spacer()
                         Image(systemName: "chevron.right")
